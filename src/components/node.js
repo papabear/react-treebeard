@@ -60,7 +60,7 @@ class TreeNode extends React.Component {
                 decorators={decorators}
                 animations={animations}
                 style={this.props.style}
-                node={Object.assign({}, this.props.node)}
+                node={this.props.useObject ? this.props.node : Object.assign({}, this.props.node)}
                 onClick={this.onClick}
             />
         );
@@ -77,6 +77,7 @@ class TreeNode extends React.Component {
                         {...this._eventBubbles()}
                         key={child.id || index}
                         node={child}
+                        parent={this.props.node}
                         decorators={this.props.decorators}
                         animations={this.props.animations}
                         style={this.props.style}
@@ -102,6 +103,7 @@ class TreeNode extends React.Component {
 TreeNode.propTypes = {
     style: React.PropTypes.object.isRequired,
     node: React.PropTypes.object.isRequired,
+    useObject: React.PropTypes.bool,
     decorators: React.PropTypes.object.isRequired,
     animations: React.PropTypes.oneOfType([
         React.PropTypes.object,

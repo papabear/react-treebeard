@@ -24,6 +24,7 @@ class TreeBeard extends React.Component {
                         {...self.passthrough()}
                         key={node.id || index}
                         node={node}
+                        parent={data}
                         onToggle={this.props.onToggle}
                         animations={this.props.animations}
                         decorators={this.props.decorators}
