@@ -88,6 +88,7 @@ class TreeNode extends React.Component {
                 decorators={decorators}
                 node={Object.assign({}, node)}
                 onClick={this.onClick}
+                parent={node}
                 style={style}
             />
         );

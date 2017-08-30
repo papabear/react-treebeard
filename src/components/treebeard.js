@@ -30,6 +30,7 @@ class TreeBeard extends React.Component {
                         key={node.id || index}
                         node={node}
                         onToggle={onToggle}
+                        parent={data}
                         style={style.tree.node}
                     />
                 )}
