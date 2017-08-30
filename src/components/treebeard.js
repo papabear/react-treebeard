@@ -24,7 +24,7 @@ class TreeBeard extends React.Component {
                 ref={ref => this.treeBaseRef = ref}>
                 {data.map((node, index) =>
                     <TreeNode
-                        {...self.passthrough()}
+                        {...this.passthrough()}
                         animations={animations}
                         decorators={decorators}
                         key={node.id || index}
