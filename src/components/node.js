@@ -109,17 +109,20 @@ class TreeNode extends React.Component {
         return (
             <ul style={style.subtree}
                 ref={ref => this.subtreeRef = ref}>
-                {children.map((child, index) => <TreeNode
-                    {...this.passthrough()}
-                    {...this._eventBubbles()}
-                    animations={animations}
-                    decorators={propDecorators}
-                    key={child.id || index}
-                    node={child}
-                    parent={node}
-                    style={style}
-                />
-                )}
+                {children.map((child, index) => {
+                    //fold parent into node so end user has access to it
+                    child.parentTree = !child.parentTree ? node : child.parentTree;
+                    return <TreeNode
+                        {...this.passthrough()}
+                        {...this._eventBubbles()}
+                        animations={animations}
+                        decorators={propDecorators}
+                        key={child.id || index}
+                        node={child}
+                        parent={node}
+                        style={style}
+                    />;
+                })}
             </ul>
         );
     }
