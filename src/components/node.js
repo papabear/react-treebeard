@@ -116,6 +116,7 @@ class TreeNode extends React.Component {
                     decorators={propDecorators}
                     key={child.id || index}
                     node={child}
+                    parent={node}
                     style={style}
                 />
                 )}
